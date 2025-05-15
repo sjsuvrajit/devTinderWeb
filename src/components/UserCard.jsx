@@ -8,10 +8,10 @@ const UserCard = ({user}) => {
   <figure>
     <img
       src={photoUrl}
-      alt="Shoes" />
+      alt="User Photo" />
   </figure>
   <div className="card-body">
-    <h2 className="card-title">{firstName + " " + lastName }!</h2>
+    <h2 className="card-title">{firstName + " " + lastName }</h2>
     { gender && age && <p>{gender + ", " + age}</p>}
     <p>{about}</p>
     <div className="card-actions justify-center my-4">
