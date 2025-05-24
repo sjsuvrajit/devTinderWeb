@@ -6,7 +6,6 @@ import { addConnections } from "../utils/connectionSlice";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
-  console.log("connections -> ", connections);
   const dispatch = useDispatch();
 
   const fetchConnections = async () => {
@@ -14,7 +13,6 @@ const Connections = () => {
       const res = await axios.get(BASE_URL + "/user/connections", {
         withCredentials: true,
       });
-      console.log(res);
       dispatch(addConnections(res.data.data));
     } catch (err) {
       console.log(err);
@@ -39,10 +37,10 @@ const Connections = () => {
       <h1 className="text-center text-2xl">Connections</h1>
 
       {connections.map((con) => {
-        const { firstName, lastName, age, gender, photoUrl, about } = con;
+        const { _id, firstName, lastName, age, gender, photoUrl, about } = con;
 
         return (
-          <div className="flex justify-center my-5">
+          <div key={_id} className="flex justify-center my-5">
             <div className="flex justify-center w-1/2  bg-lime-950 rounded-xl">
               <div>
                 <img
